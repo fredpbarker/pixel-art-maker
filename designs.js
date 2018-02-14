@@ -40,6 +40,6 @@ submitButton.addEventListener("click", function makeGrid(evt) {
 
 // Add an event listener to any cell that's targeted inside the grid
 
-grid.addEventListener("click", function(e) {
+grid.addEventListener("mousedown", function(e) {
   e.target.style.backgroundColor = document.getElementById("colorPicker").value;
 });
