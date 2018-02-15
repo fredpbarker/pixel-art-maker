@@ -51,7 +51,7 @@ function eraseWork(event) {
 
   // A loop that loops over every grid cell (td element) in the grid and sets its background color back to that of the rest of the page
   for (let i in gridCells) {
-    gridCells[i].style.backgroundColor = "#fff";
+    gridCells[i].style.backgroundColor = "#F5F5F5";
   }
 }
 
