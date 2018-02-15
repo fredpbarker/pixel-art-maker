@@ -7,15 +7,16 @@ body {
 }
 
 h1 {
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Fredoka One', san-serif;
   font-size: 5.5rem;
-  font-weight: 900;
   margin: 2.5rem .2rem .2rem .2rem;
+  letter-spacing: 2px;
 }
 
 h2 {
   font-size: 1.8rem;
   margin: 2rem 0 1rem;
+  text-decoration: underline;
 }
 
 h2:first-of-type {
@@ -35,7 +36,7 @@ h2:nth-of-type(2), #colorPicker {
 }
 
 input[type=number] {
-  width: 6rem;
+  width: 5rem;
   font-size: 1.1rem;
 }
 
