@@ -1,30 +1,33 @@
-// Target height input field
-const heightInput = document.getElementById("inputHeight");
-
-// Target width input field
-const widthInput = document.getElementById("inputWidth");
-
-// Target submit button
-const getInputs = document.querySelectorAll("input");
-const submitButton = getInputs[2];
-
-// Target table element that stores the grid
+// Set up variables to target the submit buttons and grid container
+const makeGridButton = document.getElementById("submitGrid");
+const eraseWorkButton = document.getElementById("eraseWork");
 const grid = document.getElementById("pixelCanvas");
 
-// Create an event listener that fires when the submit button is pressed
-submitButton.addEventListener("click", function makeGrid(evt) {
-  // Stops page from reloading on submit
-  evt.preventDefault();
+// Add event handler that runs the makeGrid function when the 'Make Grid' button is pressed
+makeGridButton.addEventListener("click", makeGrid);
 
-  // Clear the grid each time the submit button is pressed
+// Add event handler that runs the eraseWork function when the 'Erase Your Work' button is pressed
+eraseWorkButton.addEventListener("click", eraseWork);
+
+// Runs the paintGrid function
+paintGrid(grid);
+
+// A function that creates the grid
+function makeGrid(event) {
+  // Stops the 'Make Grid' button from reloading the page
+  event.preventDefault();
+
+  // Removes any old grid from the page before a new one is created
   while (grid.firstChild) {
     grid.removeChild(grid.firstChild);
   }
 
   // Gets the current value of the height input field
+  const heightInput = document.getElementById("inputHeight");
   const height = heightInput.value;
 
   // Gets the current value of the width input field
+  const widthInput = document.getElementById("inputWidth");
   const width = widthInput.value;
 
   // A nested loop to create rows and then create cells inside those rows
@@ -36,10 +39,45 @@ submitButton.addEventListener("click", function makeGrid(evt) {
       newRow.appendChild(newCol);
     }
   } // END FOR LOOP
-});
+}
 
-// Add an event listener to any cell that's targeted inside the grid
+// A function to erase any work you've done
+function eraseWork(event) {
+  // Stops the 'Erase Your Work' button from reloding the page
+  event.preventDefault();
 
-grid.addEventListener("mousedown", function(e) {
-  e.target.style.backgroundColor = document.getElementById("colorPicker").value;
-});
+  // Targets all cells (td elements) in the grid
+  const gridCells = document.querySelectorAll("td");
+
+  // A loop that loops over every grid cell (td element) in the grid and sets its background color back to that of the rest of the page
+  for (let i in gridCells) {
+    gridCells[i].style.backgroundColor = "#fff";
+  }
+}
+
+// A function for painting inside the grid
+function paintGrid(grid) {
+  // Targets the color picker
+  const currentColor = document.getElementById("colorPicker");
+
+  // Sets a variable which will allow us to detect if the left mouse button is pressed
+  let isMousedown = false;
+
+  // Adds an event listener that sets the isMousedown variable to true on a left mouse click and also paints the grid cell you're clicking on with the current color
+  grid.addEventListener("mousedown", function(event) {
+    isMousedown = true;
+    event.target.style.backgroundColor = currentColor.value;
+  });
+
+  // Adds an event listener that sets the isMousedown variable to false when the mouse button is not clicked
+  document.addEventListener("mouseup", function(event) {
+    isMousedown = false;
+  });
+
+  // Adds an event listener that paints the grid cells using the mouseover event ONLY if the left mouse button is clicked. 'event.target !== grid' prevents the entire grid from being painted with the selected color if you happen to hover over the very edge of the grid
+  grid.addEventListener("mouseover", function(event) {
+    if (isMousedown && event.target !== grid) {
+      event.target.style.backgroundColor = currentColor.value;
+    }
+  });
+}
