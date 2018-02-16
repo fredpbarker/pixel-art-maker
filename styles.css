@@ -45,12 +45,12 @@ input[type=number] {
   flex-direction: column;
 }
 
-.sizes {
+.sizes, .hint {
   display: flex;
   justify-content: center;
   margin-top: .5rem;
-  font-weight: 400;
   font-size: 1.2rem;
+  font-weight: bolder;
 }
 
 .sizes p {
@@ -115,6 +115,13 @@ td {
   width: 20px;
 }
 
+#pixelCanvas {
+  margin-bottom: 3rem;
+}
+
+.hint {
+  margin-bottom: 4rem;
+}
 
 
 

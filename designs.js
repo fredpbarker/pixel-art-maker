@@ -66,7 +66,11 @@ function paintGrid(grid) {
   // Adds an event listener that sets the isMousedown variable to true on a left mouse click and also paints the grid cell you're clicking on with the current color
   grid.addEventListener("mousedown", function(event) {
     isMousedown = true;
-    event.target.style.backgroundColor = currentColor.value;
+    if (event.target.style.backgroundColor === "") {
+      event.target.style.backgroundColor = currentColor.value;
+    } else {
+      event.target.style.backgroundColor = "";
+    }
   });
 
   // Adds an event listener that sets the isMousedown variable to false when the mouse button is not clicked
