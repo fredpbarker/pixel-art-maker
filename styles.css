@@ -38,6 +38,7 @@ h2:nth-of-type(2), #colorPicker {
 input[type=number] {
   width: 5rem;
   font-size: 1.1rem;
+  text-align: center;
 }
 
 #sizePicker {
@@ -61,7 +62,7 @@ input[type=number] {
 #inputHeight, #inputWidth {
   margin-left: .2rem;
   height: 1.5rem;
-  width: 5rem;
+  width: 3rem;
 }
 
 input[type=submit] {
@@ -123,6 +124,17 @@ td {
   margin-bottom: 4rem;
 }
 
+@media screen and (max-width: 514px) {
+  #submitGrid {
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 404px) {
+  .sizes {
+    display: inline;
+  }
+}
 
 
 
