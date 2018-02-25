@@ -1,5 +1,5 @@
 body {
-  background-color: #F5F5F5;
+  background: #F9FAFB url('geometry.png');
   font-family: Rubik, sans-serif;
   text-align: center;
   color: #181818;
@@ -101,6 +101,7 @@ table,
 tr,
 td {
   border: 1px solid #181818;
+  background: #F9FAFB;
 }
 
 table {

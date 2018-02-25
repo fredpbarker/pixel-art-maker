@@ -30,15 +30,21 @@ function makeGrid(event) {
   const widthInput = document.getElementById("inputWidth");
   const width = widthInput.value;
 
-  // A nested loop to create rows and then create cells inside those rows
-  for (let r = 0; r < height; r++) {
-    const newRow = document.createElement("tr");
-    grid.appendChild(newRow);
-    for (let c = 0; c < width; c++) {
-      const newCol = document.createElement("td");
-      newRow.appendChild(newCol);
-    }
-  } // END FOR LOOP
+  if (width > 150 || height > 150) {
+    alert("PLEASE ENTER A VALUE OF 150 OR LESS!");
+  } else {
+    // A nested loop to create rows and then create cells inside those rows
+    const fragment = document.createDocumentFragment();
+    for (let r = 0; r < height; r++) {
+      const newRow = document.createElement("tr");
+      fragment.appendChild(newRow);
+      for (let c = 0; c < width; c++) {
+        const newCol = document.createElement("td");
+        newRow.appendChild(newCol);
+      }
+      grid.appendChild(fragment);
+    } // END FOR LOOP
+  }
 }
 
 // A function to erase any work you've done
@@ -51,7 +57,7 @@ function eraseWork(event) {
 
   // A loop that loops over every grid cell (td element) in the grid and sets its background color back to that of the rest of the page
   for (let i in gridCells) {
-    gridCells[i].style.backgroundColor = "#F5F5F5";
+    gridCells[i].style.backgroundColor = "#F9FAFB";
   }
 }
 
