@@ -1,16 +1,7 @@
-# Pixel Art Maker Project
+# Pixel Art Maker
 
-## Table of Contents
+## Synopsis
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+My first project for Udacity's Front-End Web Developer Nanodegree. A single-page web app that takes user input and then generates a grid that the user can use to make simple pixel art. 
 
-## Instructions
 
-To get started, open `designs.js` and start building out the app's functionality.
-
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
